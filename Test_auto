@@ -1,0 +1,96 @@
+package NXT_TestNG;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.Test;
+
+public class Marathishaadi 
+{
+
+	WebDriver driver;	
+
+	@Test
+	
+	public void LoginToPortal() throws Exception
+	{		
+		try
+		{
+		  System.setProperty("webdriver.chrome.driver", "D:\\Softwarre\\Driver\\chromedriver.exe"); 
+		  WebDriver driver=new ChromeDriver(); 
+		  driver.manage().window().maximize(); 
+		  driver.manage().deleteAllCookies();
+		  cache_clear(driver);
+		  driver.get("https://www.marathishaadi.com/");
+		  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		  driver.findElement(By.xpath("//*[@id=\"___gatsby\"]/div/div[1]/div[2]/div/div/form/div/div[3]/button")).click();
+		  Thread.sleep(1000);
+		  driver.findElement(By.xpath("//*[@id=\"___gatsby\"]/div/div[7]/form/div[2]/div[1]/input")).sendKeys("pravin.gurav@pnbmetlife.com"); //Username
+		  Thread.sleep(1000);
+		  driver.findElement(By.xpath("//*[@id=\"___gatsby\"]/div/div[7]/form/div[2]/div[2]/input")).sendKeys("Metlife_1"); //Password
+		  Thread.sleep(1000);
+		  driver.findElement(By.xpath("//*[@id=\"___gatsby\"]/div/div[7]/form/div[2]/div[3]/div/div/div[1]")).click();//login button
+		  Thread.sleep(1000);
+		  driver.findElement(By.xpath("//*[@id=\"___gatsby\"]/div/div[7]/form/div[2]/div[3]/div/div[2]/div[1]")).click();
+		  driver.findElement(By.xpath("//*[@id=\"gender_male\"]")).click();
+		  driver.findElement(By.xpath("//*[@id=\"___gatsby\"]/div/div[7]/form/div[3]/button")).click();
+		  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		  
+		  driver.findElement(By.xpath("//*[@id=\"___gatsby\"]/div/div[7]/form/div[2]/div[1]/input")).sendKeys("Pravin"); //First Name
+		  driver.findElement(By.xpath("//*[@id=\"___gatsby\"]/div/div[7]/form/div[2]/div[2]/input")).sendKeys("Gurav"); //Last Name
+		  Thread.sleep(1000);
+		  driver.findElement(By.xpath("//*[@id=\"___gatsby\"]/div/div[7]/form/div[3]/div[1]/div/div")).click();//Dob button
+		  driver.findElement(By.xpath("//*[@id=\"___gatsby\"]/div/div[7]/form/div[3]/div[1]/div/div[2]/div[1]")).click();
+		  driver.findElement(By.xpath("//*[@id=\"___gatsby\"]/div/div[7]/form/div[3]/div[2]/div/div")).click();//Dob button
+		  driver.findElement(By.xpath("//*[@id=\"___gatsby\"]/div/div[7]/form/div[3]/div[2]/div/div[2]/div[1]")).click();
+		  driver.findElement(By.xpath("//*[@id=\"___gatsby\"]/div/div[7]/form/div[3]/div[3]/div/div[1]")).click();//Dob button
+		  driver.findElement(By.xpath("//*[@id=\"___gatsby\"]/div/div[7]/form/div[3]/div[3]/div/div[2]/div[1]")).click();
+		  
+		  Thread.sleep(1000);
+		  driver.findElement(By.xpath("//*[@id=\"___gatsby\"]/div/div[7]/form/div[4]/div/div/div")).click();//Religion button
+		  driver.findElement(By.xpath("//*[@id=\"___gatsby\"]/div/div[7]/form/div[4]/div/div/div[2]/div[1]")).click();
+		  Thread.sleep(1000);
+		  driver.findElement(By.xpath("//*[@id=\"___gatsby\"]/div/div[7]/form/div[7]/button")).click();//Signup button
+		  Thread.sleep(10000);
+		 // driver.findElement(By.xpath("//*[@id=\"places\"]")).sendKeys("Mumbai");	
+		 String XP="//*[@id=\\\"places\\\"]";
+		 WebElement option=driver.findElement(By.xpath(XP));
+		 Actions actions=new Actions(driver);
+		 actions.moveToElement(option).perform();
+		 driver.findElement(By.linkText("Mumbai, Maharashtra, India"));
+		 
+		 Thread.sleep(1000);
+		 driver.findElement(By.xpath("//*[@id=\"height\"]")).sendKeys("4ft 5in - 134cm");
+		
+		 Thread.sleep(1000);
+		  driver.findElement(By.xpath("//*[@id=\"caste\"]")).sendKeys("Maratha");
+		  Thread.sleep(1000);
+		  driver.findElement(By.id("submit-form-basic")).click();
+		  
+		  
+		  
+		  }
+					  
+	
+	
+		catch(Exception e)
+		{
+			
+			e.getStackTrace();
+		}
+	
+	}
+
+				  
+	
+
+	
+	private void cache_clear(WebDriver driver2) {
+		// 
+	
+	
+}}
